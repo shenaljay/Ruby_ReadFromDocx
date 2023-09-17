@@ -1,0 +1,28 @@
+<div>
+  <%= form_tag "/new" do %>
+    <div>
+      <p><%= label_tag(:phrase, "Enter word") %></p>
+      <p><%= text_field_tag(:phrase, nil) %></p>
+    </div>
+    <div>
+      <p><%= label_tag(:path, "Enter Root Directory for Search") %></p>
+      <p><%= text_field_tag(:path, nil) %></p>
+    </div>
+    <%= submit_tag "Search" %>
+    <div>
+      <br>
+      <%=@message%>
+    </div>
+<% end %>
+</div>
+<% if @arrayFilesAll.blank? %>
+<% else %>
+  <% for index in 0..@arrayFilesAll.length-1 do %>
+    <p> <%= @arrayFilesAll[index]%> </p>
+    <p><%= text_area_tag(:content, @contents[index], size: "55x5") %></p>
+
+  <% end %>
+<% end %>
+
+<!--Shenal Madurawalage Don - S1498742-->
+<!--Q3S1498742-->
